@@ -69,7 +69,7 @@ config navbar
 	
 config navbar
 	option name 'Netmonitor'
-	option enable 'Disable'
+	option enable 'Enable'
 	option line '6'
 	option newtab 'No'
 	option icon '/www/luci-static/alpha/gaya/icon/navbar/netmon.png'
@@ -85,7 +85,7 @@ config navbar
 	
 config navbar
 	option name 'Modem'
-	option enable 'Disable'
+	option enable 'Enable'
 	option line '7'
 	option newtab 'No'
 	option icon '/www/luci-static/alpha/gaya/icon/navbar/modem.png'
