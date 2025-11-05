@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%=luci.sys.hostname()%></title>
+    <link rel="stylesheet" href="/luci-static/argon/css/login.css">
+    <link rel="shortcut icon" href="<%=media%>/favicon.ico">
+</head>
+<body>
+    <div class="theme-toggle">
+        <button class="theme-btn" id="b">DARK</button>
+    </div>
+
+    <form method="post" action="<%=pcdata(FULL_REQUEST_URI)%>">
+        <%- if fuser then %>
+        <div class="alert-message" id="a">
+            Invalid username and/or password! Please try again.
+        </div>
+        <% end -%>
+
+        <div class="login_form_container">
+            <div class="login_form">
+                <h2><%=luci.sys.hostname()%></h2>
+                <div class="date-time">
+                    <span id="d"></span> | <span id="t"></span>
+                </div>
+
+                <div class="input_group">
+                    <input class="input_text" type="text" name="luci_username" placeholder="Username" value="<%=duser or ""%>" required autofocus>
+                </div>
+                
+                <div class="input_group">
+                    <input class="input_text" type="password" name="luci_password" placeholder="Password" required>
+                </div>
+
+                <input type="submit" value="LOGIN">
+                
+                <div class="footer">XIDZs-WRT © 2025</div>
+            </div>
+        </div>
+    </form>
+
+    <script src="/luci-static/argon/js/xidz.js"></script>
+</body>
+</html>
