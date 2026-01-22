@@ -61,7 +61,7 @@ config navbar
 	
 config navbar
 	option name 'DroidNet'
-	option enable 'Disable'
+	option enable 'Enable'
 	option line '5'
 	option newtab 'No'
 	option icon '/www/luci-static/alpha/gaya/icon/navbar/droidnet.png'
@@ -101,7 +101,7 @@ config navbar
 
 config navbar
 	option name 'Openclash'
-	option enable 'Enable'
+	option enable 'Disable'
 	option line '9'
 	option newtab 'No'
 	option icon '/www/luci-static/alpha/gaya/icon/navbar/openclash.png'
@@ -117,7 +117,7 @@ config navbar
 
 config navbar
 	option name 'Nikki'
-	option enable 'Enable'
+	option enable 'Disable'
 	option line '10'
 	option newtab 'No'
 	option icon '/www/luci-static/alpha/gaya/icon/navbar/nikki.png'
@@ -133,7 +133,7 @@ config navbar
 	
 config navbar
 	option name 'Passwall'
-	option enable 'Enable'
+	option enable 'Disable'
 	option line '11'
 	option newtab 'No'
 	option icon '/www/luci-static/alpha/gaya/icon/navbar/passwall.png'
