@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%=luci.sys.hostname()%></title>
+    <title><%=luci.sys.hostname() or "XIDZs-WRT"%></title>
     <link rel="stylesheet" href="/luci-static/argon/css/login.css">
     <link rel="shortcut icon" href="<%=media%>/favicon.ico">
 </head>
@@ -21,7 +21,7 @@
 
         <div class="login_form_container">
             <div class="login_form">
-                <h2><%=luci.sys.hostname()%></h2>
+                <h2 id="hostname" data-text="<%=luci.sys.hostname() or "XIDZs-WRT"%>"></h2>
                 <div class="date-time">
                     <span id="d"></span> | <span id="t"></span>
                 </div>
@@ -36,7 +36,7 @@
 
                 <input type="submit" value="LOGIN">
                 
-                <div class="footer">XIDZs-WRT © 2025</div>
+                <div class="footer">XIDZs-WRT © 2026</div>
             </div>
         </div>
     </form>
