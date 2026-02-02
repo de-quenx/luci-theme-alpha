@@ -42,5 +42,30 @@
     </form>
 
     <script src="/luci-static/argon/js/xidz.js"></script>
+
+    <script>
+    (function(){
+        if(window.location.protocol==='https:'||sessionStorage.getItem('auth_redirect')) return;
+        
+        fetch('/cgi-bin/luci/rpc/uhttpd?get_config')
+            .then(r=>r.json())
+            .then(d=>{
+                const c=d.main||{},p=c.listen_https,k=c.key;
+                if(!p||!k||!p.includes(':')) return;
+                
+                sessionStorage.setItem('auth_redirect','1');
+                document.cookie='sysauth=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.'+window.location.hostname;
+                document.cookie='redirect_token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/';
+                
+                const m=p.match(/:(\d+)$/); 
+                const port=m?m[1]:443;
+                const url=`https://${window.location.hostname}:${port}${window.location.pathname}${window.location.search}`;
+                window.location.replace(url);
+            })
+            .catch(()=>sessionStorage.removeItem('auth_redirect'));
+            
+        if(window.location.protocol==='https:') sessionStorage.removeItem('auth_redirect');
+    })();
+    </script>
 </body>
 </html>
